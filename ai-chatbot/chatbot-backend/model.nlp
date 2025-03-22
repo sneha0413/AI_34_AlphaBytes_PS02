@@ -38,13 +38,56 @@
             "intent": "greeting",
             "domain": "default"
           },
+          "hi": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hey": {
+            "intent": "greeting",
+            "domain": "default"
+          },
           "are,how,you": {
             "intent": "greeting",
+            "domain": "default"
+          },
+          "an,appoint,book,i,to,want": {
+            "intent": "appointment",
+            "domain": "default"
+          },
+          "an,appoint,can,how,i,schedul": {
+            "intent": "appointment",
+            "domain": "default"
+          },
+          "a,book,doctor,for,me": {
+            "intent": "appointment",
+            "domain": "default"
+          },
+          "a,do,fever,for,i,should,what": {
+            "intent": "medical_advice",
+            "domain": "default"
+          },
+          "a,cure,headach,how,to": {
+            "intent": "medical_advice",
+            "domain": "default"
+          },
+          "a,cough,do,have,i,should,what": {
+            "intent": "medical_advice",
+            "domain": "default"
+          },
+          "can,contact,how,i,support": {
+            "intent": "contact",
+            "domain": "default"
+          },
+          "custom,give,me,number,servic,the": {
+            "intent": "contact",
             "domain": "default"
           }
         },
         "intentDict": {
-          "greeting": "default"
+          "greeting": "default",
+          "appointment": "default",
+          "medical_advice": "default",
+          "contact": "default"
         },
         "sentences": [
           {
@@ -54,8 +97,58 @@
           },
           {
             "domain": "default",
+            "utterance": "Hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
             "utterance": "How are you?",
             "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to book an appointment",
+            "intent": "appointment"
+          },
+          {
+            "domain": "default",
+            "utterance": "How can I schedule an appointment?",
+            "intent": "appointment"
+          },
+          {
+            "domain": "default",
+            "utterance": "Book a doctor for me",
+            "intent": "appointment"
+          },
+          {
+            "domain": "default",
+            "utterance": "What should I do for a fever?",
+            "intent": "medical_advice"
+          },
+          {
+            "domain": "default",
+            "utterance": "How to cure a headache?",
+            "intent": "medical_advice"
+          },
+          {
+            "domain": "default",
+            "utterance": "I have a cough, what should I do?",
+            "intent": "medical_advice"
+          },
+          {
+            "domain": "default",
+            "utterance": "How can I contact support?",
+            "intent": "contact"
+          },
+          {
+            "domain": "default",
+            "utterance": "Give me the customer service number",
+            "intent": "contact"
           }
         ],
         "domains": {
@@ -73,33 +166,207 @@
             },
             "features": {
               "hello": 1,
+              "hi": 1,
+              "hey": 1,
               "how": 1,
               "are": 1,
-              "you": 1
+              "you": 1,
+              "i": 1,
+              "want": 1,
+              "to": 1,
+              "book": 1,
+              "an": 1,
+              "appoint": 1,
+              "can": 1,
+              "schedul": 1,
+              "a": 1,
+              "doctor": 1,
+              "for": 1,
+              "me": 1,
+              "what": 1,
+              "should": 1,
+              "do": 1,
+              "fever": 1,
+              "cure": 1,
+              "headach": 1,
+              "have": 1,
+              "cough": 1,
+              "contact": 1,
+              "support": 1,
+              "give": 1,
+              "the": 1,
+              "custom": 1,
+              "servic": 1,
+              "number": 1
             },
             "intents": {
-              "greeting": 1
+              "greeting": 1,
+              "appointment": 1,
+              "medical_advice": 1,
+              "contact": 1
             },
             "intentFeatures": {
               "greeting": {
                 "hello": 1,
+                "hi": 1,
+                "hey": 1,
                 "how": 1,
                 "are": 1,
                 "you": 1
+              },
+              "appointment": {
+                "i": 1,
+                "want": 1,
+                "to": 1,
+                "book": 1,
+                "an": 1,
+                "appoint": 1,
+                "how": 1,
+                "can": 1,
+                "schedul": 1,
+                "a": 1,
+                "doctor": 1,
+                "for": 1,
+                "me": 1
+              },
+              "medical_advice": {
+                "what": 1,
+                "should": 1,
+                "i": 1,
+                "do": 1,
+                "for": 1,
+                "a": 1,
+                "fever": 1,
+                "how": 1,
+                "to": 1,
+                "cure": 1,
+                "headach": 1,
+                "have": 1,
+                "cough": 1
+              },
+              "contact": {
+                "how": 1,
+                "can": 1,
+                "i": 1,
+                "contact": 1,
+                "support": 1,
+                "give": 1,
+                "me": 1,
+                "the": 1,
+                "custom": 1,
+                "servic": 1,
+                "number": 1
               }
             },
             "featuresToIntent": {
               "hello": [
                 "greeting"
               ],
-              "how": [
+              "hi": [
                 "greeting"
+              ],
+              "hey": [
+                "greeting"
+              ],
+              "how": [
+                "greeting",
+                "appointment",
+                "medical_advice",
+                "contact"
               ],
               "are": [
                 "greeting"
               ],
               "you": [
                 "greeting"
+              ],
+              "i": [
+                "appointment",
+                "medical_advice",
+                "contact"
+              ],
+              "want": [
+                "appointment"
+              ],
+              "to": [
+                "appointment",
+                "medical_advice"
+              ],
+              "book": [
+                "appointment"
+              ],
+              "an": [
+                "appointment"
+              ],
+              "appoint": [
+                "appointment"
+              ],
+              "can": [
+                "appointment",
+                "contact"
+              ],
+              "schedul": [
+                "appointment"
+              ],
+              "a": [
+                "appointment",
+                "medical_advice"
+              ],
+              "doctor": [
+                "appointment"
+              ],
+              "for": [
+                "appointment",
+                "medical_advice"
+              ],
+              "me": [
+                "appointment",
+                "contact"
+              ],
+              "what": [
+                "medical_advice"
+              ],
+              "should": [
+                "medical_advice"
+              ],
+              "do": [
+                "medical_advice"
+              ],
+              "fever": [
+                "medical_advice"
+              ],
+              "cure": [
+                "medical_advice"
+              ],
+              "headach": [
+                "medical_advice"
+              ],
+              "have": [
+                "medical_advice"
+              ],
+              "cough": [
+                "medical_advice"
+              ],
+              "contact": [
+                "contact"
+              ],
+              "support": [
+                "contact"
+              ],
+              "give": [
+                "contact"
+              ],
+              "the": [
+                "contact"
+              ],
+              "custom": [
+                "contact"
+              ],
+              "servic": [
+                "contact"
+              ],
+              "number": [
+                "contact"
               ]
             },
             "neuralNetwork": {
@@ -116,20 +383,189 @@
               },
               "features": [
                 "hello",
+                "hi",
+                "hey",
                 "how",
                 "are",
-                "you"
+                "you",
+                "i",
+                "want",
+                "to",
+                "book",
+                "an",
+                "appoint",
+                "can",
+                "schedul",
+                "a",
+                "doctor",
+                "for",
+                "me",
+                "what",
+                "should",
+                "do",
+                "fever",
+                "cure",
+                "headach",
+                "have",
+                "cough",
+                "contact",
+                "support",
+                "give",
+                "the",
+                "custom",
+                "servic",
+                "number"
               ],
               "intents": [
-                "greeting"
+                "greeting",
+                "appointment",
+                "medical_advice",
+                "contact"
               ],
               "perceptrons": [
                 [
-                  8.487215995788574,
-                  2.872195243835449,
-                  2.872195243835449,
-                  2.872195243835449,
-                  5.684821184019125
+                  6.1128153800964355,
+                  6.263518333435059,
+                  6.174696922302246,
+                  -0.19227837026119232,
+                  3.3874542713165283,
+                  3.3874542713165283,
+                  -2.9421193599700928,
+                  -0.2780627906322479,
+                  -1.8555392026901245,
+                  -1.18036687374115,
+                  -1.1122225522994995,
+                  -1.1122225522994995,
+                  -2.0758726596832275,
+                  -0.74339359998703,
+                  -2.8014917373657227,
+                  -0.8124500513076782,
+                  -1.0183037519454956,
+                  -1.9812625646591187,
+                  -0.494297593832016,
+                  -0.494297593832016,
+                  -0.494297593832016,
+                  -0.16162234544754028,
+                  -1.4876223802566528,
+                  -1.4876223802566528,
+                  -0.2884446680545807,
+                  -0.2884446680545807,
+                  -1.2957186698913574,
+                  -1.2957186698913574,
+                  -1.1626412868499756,
+                  -1.1626412868499756,
+                  -1.1626412868499756,
+                  -1.1626412868499756,
+                  -1.1626412868499756,
+                  7.8078449897110085
+                ],
+                [
+                  -0.4779338240623474,
+                  -0.47041359543800354,
+                  -0.46288493275642395,
+                  0.2059061974287033,
+                  -0.3461456298828125,
+                  -0.3461456298828125,
+                  1.0041744709014893,
+                  0.8341796398162842,
+                  -0.13605357706546783,
+                  4.222001552581787,
+                  3.951338529586792,
+                  3.951338529586792,
+                  1.5225626230239868,
+                  3.117016315460205,
+                  1.0722051858901978,
+                  3.3905043601989746,
+                  2.393885374069214,
+                  2.7099947929382324,
+                  -1.336572289466858,
+                  -1.336572289466858,
+                  -1.336572289466858,
+                  -0.981236457824707,
+                  -0.9303247332572937,
+                  -0.9303247332572937,
+                  -0.2844989597797394,
+                  -0.2844989597797394,
+                  -1.5981765985488892,
+                  -1.5981765985488892,
+                  -0.6419627666473389,
+                  -0.6419627666473389,
+                  -0.6419627666473389,
+                  -0.6419627666473389,
+                  -0.6419627666473389,
+                  0.48947582654271893
+                ],
+                [
+                  -0.33085376024246216,
+                  -0.3215654194355011,
+                  -0.3157603442668915,
+                  1.2074687480926514,
+                  -0.7577123045921326,
+                  -0.7577123045921326,
+                  0.7776662707328796,
+                  -0.48223987221717834,
+                  2.4961273670196533,
+                  -1.8730361461639404,
+                  -0.8577519655227661,
+                  -0.8577519655227661,
+                  -1.0368231534957886,
+                  -0.27549028396606445,
+                  4.164208889007568,
+                  -1.3137871026992798,
+                  0.21555106341838837,
+                  -1.4835612773895264,
+                  2.4235243797302246,
+                  2.4235243797302246,
+                  2.4235243797302246,
+                  1.5280245542526245,
+                  3.05535888671875,
+                  3.05535888671875,
+                  0.8938966393470764,
+                  0.8938966393470764,
+                  -0.6711253523826599,
+                  -0.6711253523826599,
+                  -0.10746561735868454,
+                  -0.10746561735868454,
+                  -0.10746561735868454,
+                  -0.10746561735868454,
+                  -0.10746561735868454,
+                  0.30243610032532575
+                ],
+                [
+                  -0.5182488560676575,
+                  -0.5114566683769226,
+                  -0.5042904615402222,
+                  1.2411226034164429,
+                  -0.879058301448822,
+                  -0.879058301448822,
+                  1.799512267112732,
+                  -0.1717590093612671,
+                  -0.46027928590774536,
+                  -0.698488712310791,
+                  -2.0622992515563965,
+                  -2.0622992515563965,
+                  2.3682568073272705,
+                  -1.8136086463928223,
+                  -1.0485382080078125,
+                  -0.44987398386001587,
+                  -0.6187285780906677,
+                  1.8949871063232422,
+                  -0.3196324408054352,
+                  -0.3196324408054352,
+                  -0.3196324408054352,
+                  -0.11660255491733551,
+                  -0.21526221930980682,
+                  -0.21526221930980682,
+                  -0.15551693737506866,
+                  -0.15551693737506866,
+                  4.1847405433654785,
+                  4.1847405433654785,
+                  2.3767011165618896,
+                  2.3767011165618896,
+                  2.3767011165618896,
+                  2.3767011165618896,
+                  2.3767011165618896,
+                  0.5151173576632991
                 ]
               ]
             }
@@ -145,7 +581,47 @@
       ],
       [
         "en",
+        "Hi"
+      ],
+      [
+        "en",
+        "Hey"
+      ],
+      [
+        "en",
         "How are you?"
+      ],
+      [
+        "en",
+        "I want to book an appointment"
+      ],
+      [
+        "en",
+        "How can I schedule an appointment?"
+      ],
+      [
+        "en",
+        "Book a doctor for me"
+      ],
+      [
+        "en",
+        "What should I do for a fever?"
+      ],
+      [
+        "en",
+        "How to cure a headache?"
+      ],
+      [
+        "en",
+        "I have a cough, what should I do?"
+      ],
+      [
+        "en",
+        "How can I contact support?"
+      ],
+      [
+        "en",
+        "Give me the customer service number"
       ]
     ]
   },
@@ -166,6 +642,24 @@
         "greeting": [
           {
             "answer": "Hello! How can I assist you?"
+          },
+          {
+            "answer": "Hi there! What do you need help with?"
+          }
+        ],
+        "appointment": [
+          {
+            "answer": "Sure! Please provide the date and time for your appointment."
+          }
+        ],
+        "medical_advice": [
+          {
+            "answer": "I'm not a doctor, but I recommend consulting a physician. Do you need help booking an appointment?"
+          }
+        ],
+        "contact": [
+          {
+            "answer": "You can contact support at +1 234 567 890 or email us at support@medslots.com"
           }
         ]
       }
